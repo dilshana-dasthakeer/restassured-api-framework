@@ -1,10 +1,6 @@
 package com.dilshana.api.client;
 
-import static io.restassured.RestAssured.given;
-
-import com.dilshana.api.config.Settings;
 import com.dilshana.api.model.Booking;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import java.util.Map;
@@ -51,10 +47,7 @@ public class BookingClient {
     }
 
     private RequestSpecification base() {
-        return given()
-                .baseUri(Settings.BASE_URL)
-                .contentType(ContentType.JSON)
-                .accept(ContentType.JSON);
+        return Requests.json();
     }
 
     private RequestSpecification authed() {
